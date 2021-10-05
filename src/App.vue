@@ -1,73 +1,95 @@
 <template>
-<h1>Hello Vue 3 + webpack</h1>
-<button @click="inc" class="btn">
-    count {{count}}
-</button>
+  <header>
+    <navigation-component></navigation-component>
+    <search></search>
+  </header>
+  <main>
+    <div class="main-items">
+      <h1>Картины эпохи Возрождения</h1>
+      <div class="items">
+        <item @click="modal = !modal"></item>
+      </div>
+    </div>
+    <modal-item v-if="modal"></modal-item>
+  </main>
+  <footer>
+    <footer-component></footer-component>
+  </footer>
 </template>
 
 <script>
-import {
-    ref
-} from "vue";
+import FooterComponent from './components/Footer.vue'
+import Item from './components/Item.vue'
+import NavigationComponent from './components/Navigation.vue'
+import ModalItem from './components/ModalItem.vue'
+import Search from './components/Search.vue'
+
+import { ref } from 'vue'
 export default {
-    data() {
-        return {};
-    },
-    components: {},
-    setup() {
-        const count = ref(0);
-        const inc = () => {
-            count.value++;
-        };
-        return {
-            count,
-            inc,
-        };
-    },
-    mounted() {},
-};
+  data () {
+    return {
+      slides: [
+        'https://picsum.photos/id/1000/560/320',
+        'https://picsum.photos/id/1001/560/320',
+        'https://picsum.photos/id/1002/560/320'
+      ],
+      modal: false
+    }
+  },
+  components: { FooterComponent, Item, NavigationComponent, ModalItem, Search },
+  setup () {
+    const count = ref(0)
+    const inc = () => {
+      count.value++
+    }
+    return {
+      count,
+      inc
+    }
+  },
+  mounted () {}
+}
 </script>
 
-<style scoped>
-img {
-    width: 200px;
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+body {
+  background: #f6f3f3;
+  font-family: 'Merriweather', serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 180px;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
-    font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 45px;
+  margin-bottom: 40px;
 }
 
-.btn {
-    line-height: 1.5715;
-    position: relative;
-    display: inline-block;
-    font-weight: 400;
-    white-space: nowrap;
-    text-align: center;
-    background-image: none;
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, .015);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, .015);
-    cursor: pointer;
-    -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
-    transition: all .3s cubic-bezier(.645, .045, .355, 1);
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    height: 32px;
-    width: 128px;
-    padding: 4px 15px;
-    font-size: 14px;
-    border-radius: 2px;
+.items {
+  display: flex;
+  column-gap: 32px;
+  row-gap: 32px;
+  width: 1250px;
+  flex-wrap: wrap;
+}
 
-    border: 1px solid #d9d9d9;
-    color: #fff;
-    background: #1890ff;
-    border-color: #1890ff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, .12);
-    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, .045);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, .045);
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
 }
 </style>

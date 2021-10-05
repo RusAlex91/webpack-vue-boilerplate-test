@@ -1,4 +1,10 @@
-import { createApp } from "vue";
-import App from "./App.vue";
+import { createApp } from 'vue'
+import App from './App.vue'
 
-createApp(App).mount("#app");
+const app = createApp(App)
+
+import BaseButton from './components/ui/BaseButton.vue'
+
+app.component('base-button', BaseButton)
+
+app.mount('#app')
