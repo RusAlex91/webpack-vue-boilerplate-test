@@ -15,7 +15,7 @@
       {
         "id":"2",
         "name":"Lorem ipsum",
-        "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur repellendus reprehenderit, corporis vero officiis unde laudantium nulla provident odit doloremque eligendi quod totam perspiciatis modi beatae ab. Autem, quasi asperiores?",
+        "description":"Odit doloremque eligendi quod totam perspiciatis modi beatae ab. Autem, quasi asperiores?",
         "preview": "https://via.placeholder.com/280x160/545454?text=Painting 2",
         "images":["https://via.placeholder.com/560x320/747474?text=Slide 1",
           "https://via.placeholder.com/560x320/646464?text=Slide 2",
@@ -27,7 +27,7 @@
     {
       "id":"3",
       "name":"Lorem ipsum dolor",
-      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur repellendus reprehenderit, corporis vero officiis unde laudantium nulla provident odit doloremque eligendi quod totam perspiciatis modi beatae ab. Autem, quasi asperiores?",
+      "description":"Consequuntur repellendus reprehenderit, corporis vero officiis unde laudantium nulla provident odit doloremque eligendi quod totam perspiciatis modi beatae ab. Autem, quasi asperiores?",
       "preview": "https://via.placeholder.com/280x160/141414?text=Painting 3",
       "images":["https://via.placeholder.com/560x320/343434?text=Slide 1",
         "https://via.placeholder.com/560x320/242424?text=Slide 2",

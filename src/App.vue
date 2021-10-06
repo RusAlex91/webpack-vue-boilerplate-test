@@ -4,6 +4,7 @@
     <search></search>
   </header>
   <main @click.stop="">
+    <!-- <router-view></router-view> -->
     <div class="main-items">
       <h1>Картины эпохи Lorem</h1>
       <div class="items">
