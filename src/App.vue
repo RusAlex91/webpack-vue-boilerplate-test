@@ -5,7 +5,7 @@
   </header>
   <main>
     <div class="main-items">
-      <h1>Картины эпохи Возрождения</h1>
+      <h1>Картины эпохи Lorem</h1>
       <div class="items">
         <item @click="modal = !modal"></item>
       </div>

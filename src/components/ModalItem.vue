@@ -41,9 +41,9 @@ export default {
   data () {
     return {
       slides: [
-        'https://picsum.photos/id/1000/560/320',
-        'https://picsum.photos/id/1001/560/320',
-        'https://picsum.photos/id/1002/560/320'
+        'https://via.placeholder.com/560x320/646464?text=Slide 1',
+        'https://via.placeholder.com/560x320/545454?text=Slide 2',
+        'https://via.placeholder.com/560x320/444444?text=Slide 3'
       ],
       visibleSlide: 0,
       direction: 'left'
