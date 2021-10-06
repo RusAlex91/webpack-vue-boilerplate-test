@@ -25,7 +25,7 @@
     {
       "id":"3",
       "name":"Lorem ipsum dolor",
-      "desc":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur repellendus reprehenderit, corporis vero officiis unde laudantium nulla provident odit doloremque eligendi quod totam perspiciatis modi beatae ab. Autem, quasi asperiores?",
+      "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur repellendus reprehenderit, corporis vero officiis unde laudantium nulla provident odit doloremque eligendi quod totam perspiciatis modi beatae ab. Autem, quasi asperiores?",
       "images":["https://via.placeholder.com/560x320/343434?text=Slide 1",
         "https://via.placeholder.com/560x320/242424?text=Slide 2",
         "https://via.placeholder.com/560x320/141414?text=Slide 3"],

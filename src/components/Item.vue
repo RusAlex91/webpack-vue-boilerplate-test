@@ -1,6 +1,6 @@
 <template>
   <div class="item" :class="{ opac: sold }">
-    <img src="https://picsum.photos/280/160" alt="" class="item__image" />
+    <img src="" alt="" class="item__image" />
     <h2 class="item__title">Lorem ipsum dolor</h2>
     <span v-if="sold" class="item__sold">Продана на аукционе</span>
     <div v-else class="item__wrapper">
@@ -14,7 +14,30 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    name: {
+      type: String,
+      required: true
+    },
+    images: {
+      type: Array,
+      required: false
+    },
+    price: {
+      type: Boolean,
+      required: false
+    },
+    newPrice: {
+      type: Boolean,
+      required: false
+    },
+    sold: {
+      type: Boolean,
+      required: true
+    }
+  }
+}
 </script>
 
 <style scoped>
