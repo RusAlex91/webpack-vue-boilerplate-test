@@ -8,7 +8,8 @@
             "https://via.placeholder.com/560x320/545454?text=Slide 2",
             "https://via.placeholder.com/560x320/444444?text=Slide 3"],
           "price": 200000,
-          "newPrice": 100000
+          "newPrice": 100000,
+          "sold": false
       },
       {
         "id":"2",
@@ -18,7 +19,8 @@
           "https://via.placeholder.com/560x320/646464?text=Slide 2",
           "https://via.placeholder.com/560x320/545454?text=Slide 3"],
         "price": 300000,
-        "newPrice": 200000
+        "newPrice": 200000,
+        "sold": false
     },
     {
       "id":"3",
@@ -28,7 +30,8 @@
         "https://via.placeholder.com/560x320/242424?text=Slide 2",
         "https://via.placeholder.com/560x320/141414?text=Slide 3"],
       "price": 100000,
-      "newPrice": 99999
+      "newPrice": 99999,
+      "sold": true
   }
   ]
 }

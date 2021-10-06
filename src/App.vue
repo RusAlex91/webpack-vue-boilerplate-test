@@ -7,7 +7,16 @@
     <div class="main-items">
       <h1>Картины эпохи Lorem</h1>
       <div class="items">
-        <item @click="modal = !modal"></item>
+        <item
+          v-for="painting in items"
+          :key="painting.id"
+          :name="painting.name"
+          :images="painting.images"
+          :price="painting.price"
+          :newPrice="painting.newPrice"
+          :sold="painting.sold"
+          @click="modal = !modal"
+        ></item>
       </div>
     </div>
     <modal-item v-if="modal"></modal-item>
@@ -28,12 +37,8 @@ import { ref } from 'vue'
 export default {
   data () {
     return {
-      slides: [
-        'https://picsum.photos/id/1000/560/320',
-        'https://picsum.photos/id/1001/560/320',
-        'https://picsum.photos/id/1002/560/320'
-      ],
-      modal: false
+      modal: false,
+      items: null
     }
   },
   components: { FooterComponent, Item, NavigationComponent, ModalItem, Search },
@@ -47,7 +52,13 @@ export default {
       inc
     }
   },
-  mounted () {}
+  mounted () {
+    fetch(
+      'https://my-json-server.typicode.com/RusAlex91/webpack-vue-boilerplate-test/paintings'
+    )
+      .then(response => response.json())
+      .then(paintings => (this.items = paintings))
+  }
 }
 </script>
 
