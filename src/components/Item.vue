@@ -1,6 +1,6 @@
 <template>
   <div class="item" :class="{ paintSold: sold }">
-    <img :src="images[0]" alt="" class="item__image" />
+    <img :src="preview" alt="" class="item__image" />
     <h2 class="item__title">"{{ name }}"</h2>
     <span v-if="sold" class="item__sold">Продана на аукционе</span>
     <div v-else class="item__wrapper">
@@ -19,6 +19,10 @@ export default {
     name: {
       type: String,
       required: true
+    },
+    preview: {
+      type: String,
+      required: false
     },
     images: {
       type: Array,
