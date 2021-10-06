@@ -1,6 +1,6 @@
 <template>
   <div class="item-modal">
-    <h2 class="item__title">Lorem ipsum dolor</h2>
+    <h2 class="item__title">{{ name }}</h2>
     <slider
       @next="slider('next')"
       @prev="slider('prev')"
@@ -18,16 +18,13 @@
     </slider>
 
     <p class="item__desc">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, eaque hic.
-      Delectus, illo sed alias molestiae dolore voluptatibus explicabo
-      consequuntur, soluta ullam facilis aut amet. Maxime esse hic provident
-      neque.
+      {{ desc }}
     </p>
     <span v-if="sold" class="item__sold">Продана на аукционе</span>
     <div v-else class="item__wrapper">
       <div class="item-price-wrapper">
-        <span class="item__price discount">20000$</span>
-        <span class="item__price">10000$</span>
+        <span class="item__price discount">{{ newPrice }}$</span>
+        <span class="item__price">{{ price }}$</span>
       </div>
       <base-button>Купить</base-button>
     </div>
@@ -38,13 +35,35 @@
 import SliderSlide from './ui/Slide.vue'
 import Slider from './Slider.vue'
 export default {
+  props: {
+    name: {
+      type: String,
+      required: true
+    },
+    images: {
+      type: Array,
+      required: false
+    },
+    desc: {
+      type: String,
+      required: false
+    },
+    price: {
+      type: Number,
+      required: false
+    },
+    newPrice: {
+      type: Number,
+      required: false
+    },
+    sold: {
+      type: Boolean,
+      required: true
+    }
+  },
   data () {
     return {
-      slides: [
-        'https://via.placeholder.com/560x320/646464?text=Slide 1',
-        'https://via.placeholder.com/560x320/545454?text=Slide 2',
-        'https://via.placeholder.com/560x320/444444?text=Slide 3'
-      ],
+      slides: [],
       visibleSlide: 0,
       direction: 'left'
     }
@@ -76,6 +95,9 @@ export default {
   components: {
     SliderSlide,
     Slider
+  },
+  mounted () {
+    this.slides = this.images
   }
 }
 </script>
@@ -94,10 +116,10 @@ export default {
   width: 560px;
   row-gap: 20px;
 }
-.item-modal__slider {
-}
+
 h2 {
   margin: 0px;
+  margin-top: 10px;
   font-size: 18px;
   line-height: 27px;
 }
@@ -123,6 +145,18 @@ h2 {
   margin: 0px;
   padding: 0px;
   width: 500px;
+  height: 100px;
+  text-align: justify;
+}
+
+.item__sold {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-color: lightgray;
+  border: 1px solid gray;
+  height: 30px;
+  width: 100%;
 }
 
 .discount {

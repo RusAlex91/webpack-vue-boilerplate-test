@@ -28,10 +28,6 @@ export default {
       type: Array,
       required: false
     },
-    desc: {
-      type: String,
-      required: false
-    },
     price: {
       type: Number,
       required: false

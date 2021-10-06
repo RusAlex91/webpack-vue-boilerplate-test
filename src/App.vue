@@ -3,7 +3,7 @@
     <navigation-component></navigation-component>
     <search></search>
   </header>
-  <main>
+  <main @click.stop="">
     <div class="main-items">
       <h1>Картины эпохи Lorem</h1>
       <div class="items">
@@ -13,15 +13,22 @@
           :name="painting.name"
           :preview="painting.preview"
           :images="painting.images"
-          :desc="painting.description"
           :price="painting.price"
           :newPrice="painting.newPrice"
           :sold="painting.sold"
-          @click="modal = !modal"
+          @click.stop="openModal(painting.id)"
         ></item>
       </div>
     </div>
-    <modal-item v-if="modal"></modal-item>
+    <modal-item
+      :name="modalItem.name"
+      :images="modalItem.images"
+      :desc="modalItem.description"
+      :price="modalItem.price"
+      :newPrice="modalItem.newPrice"
+      :sold="modalItem.sold"
+      v-if="modal"
+    ></modal-item>
   </main>
   <footer>
     <footer-component></footer-component>
@@ -40,7 +47,23 @@ export default {
   data () {
     return {
       modal: false,
-      items: null
+      items: null,
+      modalItem: null
+    }
+  },
+  methods: {
+    openModal (id) {
+      this.items.find(obj => {
+        if (obj.id === id) {
+          this.modalItem = obj
+          this.modal = !this.modal
+        }
+      })
+    },
+    disableModal () {
+      if (this.modal) {
+        this.modal = false
+      }
     }
   },
   components: { FooterComponent, Item, NavigationComponent, ModalItem, Search },
