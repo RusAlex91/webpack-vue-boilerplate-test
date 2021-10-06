@@ -13,10 +13,9 @@
         :visibleSlide="visibleSlide"
         :direction="direction"
       >
-        <img :src="slide" alt="" />
+        <img :src="slide" alt="" lazy @load="onImgLoad" />
       </slider-slide>
     </slider>
-
     <p class="item__desc">
       {{ desc }}
     </p>
@@ -65,7 +64,8 @@ export default {
     return {
       slides: [],
       visibleSlide: 0,
-      direction: 'left'
+      direction: 'left',
+      imagesReady: 0
     }
   },
   computed: {
@@ -90,13 +90,22 @@ export default {
         }
         this.direction = 'right'
       }
+    },
+    onImgLoad () {
+      console.log(this.imagesReady)
+      this.imagesReady++
+      if (this.imagesReady == 3) {
+        this.$emit('imgload', true)
+        this.imagesReady = 0
+      }
     }
   },
   components: {
     SliderSlide,
     Slider
   },
-  mounted () {
+  updated () {
+    console.log('updated')
     this.slides = this.images
   }
 }

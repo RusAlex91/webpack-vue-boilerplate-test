@@ -1,6 +1,11 @@
 <template>
   <div class="item" :class="{ paintSold: sold }">
-    <img :src="preview" alt="" class="item__image" />
+    <img
+      @click.stop="this.$emit('openmodal', true)"
+      :src="preview"
+      alt=""
+      class="item__image"
+    />
     <h2 class="item__title">"{{ name }}"</h2>
     <span v-if="sold" class="item__sold">Продана на аукционе</span>
     <div v-else class="item__wrapper">
@@ -8,14 +13,24 @@
         <span class="item__price discount">{{ newPrice }}$</span>
         <span class="item__price">{{ price }}$</span>
       </div>
-      <base-button>Купить</base-button>
+
+      <base-button @click="addtoCart" :inbusket="selected">Купить</base-button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+      selected: false
+    }
+  },
   props: {
+    id: {
+      type: Number,
+      required: true
+    },
     name: {
       type: String,
       required: true
@@ -39,6 +54,23 @@ export default {
     sold: {
       type: Boolean,
       required: true
+    }
+  },
+  methods: {
+    addtoCart () {
+      this.selected = !this.selected
+
+      if (this.selected) {
+        localStorage.setItem(this.id, true)
+      } else if (!this.selected) {
+        localStorage.removeItem(this.id, true)
+      }
+    }
+  },
+  mounted () {
+    const key = localStorage.key(this.id)
+    if (key) {
+      this.selected = true
     }
   }
 }

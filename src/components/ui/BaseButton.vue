@@ -1,9 +1,18 @@
 <template>
-  <button class="buy"><slot></slot></button>
+  <!-- simple checkmark, css implementation can be done later -->
+  <button class="selected" v-if="this.inbusket">✔ В корзине</button>
+  <button v-else><slot></slot></button>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    inbusket: {
+      type: Boolean,
+      required: true
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -26,5 +35,9 @@ button:hover {
 
 button:disabled {
   background: #c1b4b1;
+}
+
+.selected {
+  background: #5b3a32;
 }
 </style>
