@@ -1,6 +1,6 @@
 <template>
   <!-- simple checkmark, css implementation can be done later -->
-  <button class="selected" v-if="this.inbusket">✔ В корзине</button>
+  <button class="selected" v-if="this.inbusket"><slot></slot></button>
   <button v-else><slot></slot></button>
 </template>
 

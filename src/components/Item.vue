@@ -14,7 +14,12 @@
         <span class="item__price">{{ price }}$</span>
       </div>
 
-      <base-button @click="addtoCart" :inbusket="selected">Купить</base-button>
+      <base-button @click="addtoCart" :inbusket="selected">{{
+        btnText
+      }}</base-button>
+      <span v-show="preload" class="preloader">
+        <div class="clock-loader"></div>
+      </span>
     </div>
   </div>
 </template>
@@ -23,7 +28,9 @@
 export default {
   data () {
     return {
-      selected: false
+      selected: false,
+      preload: false,
+      btnText: 'Купить'
     }
   },
   props: {
@@ -58,19 +65,26 @@ export default {
   },
   methods: {
     addtoCart () {
-      this.selected = !this.selected
-
-      if (this.selected) {
-        localStorage.setItem(this.id, true)
-      } else if (!this.selected) {
-        localStorage.removeItem(this.id, true)
-      }
+      this.preload = true
+      this.btnText = ' '
+      setTimeout(() => {
+        this.preload = false
+        this.selected = !this.selected
+        if (this.selected) {
+          this.btnText = '✔ В корзине'
+          localStorage.setItem(this.id, true)
+        } else if (!this.selected) {
+          this.btnText = 'Купить'
+          localStorage.removeItem(this.id)
+        }
+      }, 1000)
     }
   },
   mounted () {
     const key = localStorage.key(this.id)
     if (key) {
       this.selected = true
+      this.btnText = '✔ В корзине'
     }
   }
 }
@@ -93,6 +107,7 @@ h2 {
 .item__wrapper {
   display: flex;
   column-gap: 24px;
+  position: relative;
 }
 
 .item__sold {
@@ -125,5 +140,39 @@ h2 {
   align-items: center;
   gap: 20px;
   padding-bottom: 24px;
+}
+
+.preloader {
+  position: absolute;
+  top: 10px;
+  left: 145px;
+}
+
+.clock-loader {
+  width: 25px;
+  height: 25px;
+  background-color: rgb(129, 129, 129);
+  border-radius: 30px;
+  position: relative;
+}
+.clock-loader::after {
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  border-radius: 20px;
+  top: 10px;
+  left: 10px;
+  position: absolute;
+  content: '';
+  animation: round 0.5s infinite reverse;
+}
+
+@keyframes round {
+  from {
+    transform: rotate(0deg) translateX(10px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(10px) rotate(-360deg);
+  }
 }
 </style>
