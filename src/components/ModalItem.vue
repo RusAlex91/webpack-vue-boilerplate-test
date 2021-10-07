@@ -107,6 +107,7 @@ export default {
   updated () {
     console.log('updated')
     this.slides = this.images
+    this.visibleSlide = 0
   }
 }
 </script>

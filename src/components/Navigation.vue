@@ -29,11 +29,16 @@ li {
   padding: 0;
   margin: 0;
   font-size: 14px;
+
   list-style: none;
 }
 
 li a {
   text-decoration: none;
   color: inherit;
+}
+
+li:last-child {
+  width: 13.333vw;
 }
 </style>

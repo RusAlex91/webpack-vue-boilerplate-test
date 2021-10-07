@@ -35,6 +35,42 @@
       "price": 100000,
       "newPrice": 99999,
       "sold": true
-  }
+  },
+  {
+    "id":"4",
+    "name":"Lorem",
+    "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur repellendus reprehenderit, corporis vero officiis unde laudantium nulla provident odit doloremque eligendi quod totam perspiciatis modi beatae ab. Autem, quasi asperiores?",
+    "preview": "https://via.placeholder.com/280x160/747474?text=Painting 1",
+    "images":["https://via.placeholder.com/560x320/646464?text=Slide 1",
+      "https://via.placeholder.com/560x320/545454?text=Slide 2",
+      "https://via.placeholder.com/560x320/444444?text=Slide 3"],
+    "price": 200000,
+    "newPrice": 100000,
+    "sold": false
+},
+{
+  "id":"5",
+  "name":"Lorem ipsum",
+  "description":"Odit doloremque eligendi quod totam perspiciatis modi beatae ab. Autem, quasi asperiores?",
+  "preview": "https://via.placeholder.com/280x160/545454?text=Painting 2",
+  "images":["https://via.placeholder.com/560x320/747474?text=Slide 1",
+    "https://via.placeholder.com/560x320/646464?text=Slide 2",
+    "https://via.placeholder.com/560x320/545454?text=Slide 3"],
+  "price": 300000,
+  "newPrice": 200000,
+  "sold": false
+},
+{
+"id":"6",
+"name":"Lorem ipsum dolor",
+"description":"Consequuntur repellendus reprehenderit, corporis vero officiis unde laudantium nulla provident odit doloremque eligendi quod totam perspiciatis modi beatae ab. Autem, quasi asperiores?",
+"preview": "https://via.placeholder.com/280x160/141414?text=Painting 3",
+"images":["https://via.placeholder.com/560x320/343434?text=Slide 1",
+  "https://via.placeholder.com/560x320/242424?text=Slide 2",
+  "https://via.placeholder.com/560x320/141414?text=Slide 3"],
+"price": 100000,
+"newPrice": 99999,
+"sold": true
+}
   ]
 }

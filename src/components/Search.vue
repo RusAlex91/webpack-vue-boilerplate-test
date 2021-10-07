@@ -39,4 +39,10 @@ input[type='search']::placeholder {
   padding: 15px;
   opacity: 0.8;
 }
+
+@media only screen and (max-width: 1200px) {
+  input {
+    width: 250px;
+  }
+}
 </style>

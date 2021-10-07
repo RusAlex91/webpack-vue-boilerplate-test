@@ -191,4 +191,15 @@ footer {
     transform: rotate(360deg) translateX(20px) rotate(-360deg);
   }
 }
+
+@media only screen and (max-width: 1330px) {
+  header {
+    column-gap: 50px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  header {
+    column-gap: 50px;
+  }
+}
 </style>
