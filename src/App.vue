@@ -77,7 +77,6 @@ export default {
       })
     },
     disableModal () {
-      console.log('disable')
       if (this.modal) {
         this.modal = false
         this.modalLoad = false
@@ -85,8 +84,8 @@ export default {
       }
     },
     modalReady () {
-      console.log('modal ready')
       this.modal = true
+      this.modalLoading = false
     }
   },
   components: { FooterComponent, Item, NavigationComponent, ModalItem, Search },
@@ -125,6 +124,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 h1 {
@@ -138,13 +138,12 @@ h1 {
   display: flex;
   column-gap: 32px;
   row-gap: 32px;
-  width: 1250px;
+  width: 1200px;
   flex-wrap: wrap;
 }
 
 footer {
   width: 100%;
-  position: fixed;
   bottom: 0;
 }
 
@@ -200,6 +199,44 @@ footer {
 @media only screen and (max-width: 1200px) {
   header {
     column-gap: 50px;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  header {
+    column-gap: 10px;
+  }
+}
+
+@media only screen and (max-width: 926px) {
+  .main-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .items {
+    justify-content: center;
+    width: 800px;
+  }
+}
+
+@media only screen and (max-width: 870px) {
+  header {
+    flex-direction: column;
+  }
+  .items {
+    justify-content: center;
+    width: 600px;
+  }
+}
+@media only screen and (max-width: 870px) {
+  header {
+    flex-direction: column;
+  }
+  .items {
+    justify-content: center;
+    width: 300px;
   }
 }
 </style>

@@ -13,7 +13,7 @@
         :visibleSlide="visibleSlide"
         :direction="direction"
       >
-        <img :src="slide" alt="" lazy @load="onImgLoad" />
+        <img class="slider-image" :src="slide" alt="" lazy @load="onImgLoad" />
       </slider-slide>
     </slider>
     <p class="item__desc">
@@ -92,7 +92,6 @@ export default {
       }
     },
     onImgLoad () {
-      console.log(this.imagesReady)
       this.imagesReady++
       if (this.imagesReady == 3) {
         this.$emit('imgload', true)
@@ -105,7 +104,6 @@ export default {
     Slider
   },
   updated () {
-    console.log('updated')
     this.slides = this.images
     this.visibleSlide = 0
   }
@@ -135,6 +133,7 @@ h2 {
 }
 .item__image {
   cursor: pointer;
+  width: 100%;
 }
 .item-price-wrapper {
   display: flex;
@@ -191,5 +190,39 @@ h2 {
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 588px) {
+  .item-modal {
+    width: 400px;
+  }
+  .item-modal__slider {
+    width: 400px;
+  }
+
+  .item__desc {
+    width: 400px;
+    height: 150px;
+  }
+  .slider-image {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .item-modal {
+    width: 300px;
+  }
+  .item-modal__slider {
+    width: 300px;
+  }
+
+  .item__desc {
+    width: 300px;
+    height: 150px;
+  }
+  .slider-image {
+    width: 100%;
+  }
 }
 </style>

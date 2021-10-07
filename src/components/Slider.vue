@@ -52,4 +52,17 @@ button:hover {
 #prev {
   left: 0;
 }
+@media only screen and (max-width: 588px) {
+  .slider {
+    position: relative;
+    overflow: hidden;
+
+    height: 220px;
+  }
+}
+@media only screen and (max-width: 400) {
+  .slider {
+    height: 120px;
+  }
+}
 </style>

@@ -27,7 +27,7 @@ ul {
 
 li {
   padding: 0;
-  margin: 0;
+  margin: 5px;
   font-size: 14px;
 
   list-style: none;
@@ -36,9 +36,46 @@ li {
 li a {
   text-decoration: none;
   color: inherit;
+  border: 1px solid transparent;
 }
 
 li:last-child {
   width: 13.333vw;
+}
+
+li a:hover {
+  border: 1px solid #343030;
+}
+
+@media only screen and (max-width: 1080px) {
+  ul {
+    column-gap: 25px;
+  }
+}
+@media only screen and (max-width: 870px) {
+  li:last-child {
+    width: 100px;
+  }
+
+  ul {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 510px) {
+  ul {
+    flex-direction: column;
+    row-gap: 25px;
+  }
+  li:nth-child(2) {
+    margin-left: 10px;
+  }
+  li:nth-child(4) {
+    margin-left: 10px;
+  }
+  li:last-child {
+    width: 100px;
+  }
 }
 </style>

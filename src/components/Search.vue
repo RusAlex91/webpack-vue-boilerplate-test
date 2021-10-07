@@ -45,4 +45,24 @@ input[type='search']::placeholder {
     width: 250px;
   }
 }
+
+@media only screen and (max-width: 1330px) {
+  input {
+    width: 250px;
+  }
+}
+@media only screen and (max-width: 936px) {
+  input {
+    width: 240px;
+  }
+}
+@media only screen and (max-width: 360px) {
+  input {
+    width: 140px;
+  }
+  input[type='search']::placeholder {
+    padding: 5px;
+    opacity: 0.8;
+  }
+}
 </style>
